@@ -1,4 +1,4 @@
-Backend API NodeJs - Como executar o projeto
+Backend API NodeJs - Projeto de desenvolvimento de API
 
 Instalações necessárias:
 
@@ -6,3 +6,5 @@ Instalações necessárias:
     VS Code;
     Git;
     MongoDb
+
+    
