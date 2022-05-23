@@ -6,7 +6,7 @@ module.exports = function(server){
     server.use("/api", protectApi);
 
     server.use("/status", (req, res) =>
-        res.send('Backend is runner on port ${port}.')
+        res.send('Backend is runner.')
     );
 
     server.use(express.static(require("path").join(__dirname, "../public")))
