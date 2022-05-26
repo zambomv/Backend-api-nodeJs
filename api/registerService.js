@@ -1,5 +1,7 @@
 const _ = require('lodash');
 const Register = require('./register')
+const fullNameRegex = /^[A-ZÀ-Ÿ][A-zÀ-ÿ']+\s([A-zÀ-ÿ']\s?)*[A-ZÀ-Ÿ][A-zÀ-ÿ']+$/
+//const mailRegex = /^([^@\s\."'\(\)\[\]\{\}\\/,:;]+\.)*[^@\s\."'\(\)\[\]\{\}\\/,:;]+@[^@\s\."'\(\)\[\]\{\}\\/,:;]+(\.[^@\s\."'\(\)\[\]\{\}\\/,:;]+)+$/;
 
 Register.methods(['get', 'post', 'put', 'delete'])
 Register.updateOptions({ new: true, runValidators: true })
@@ -36,6 +38,21 @@ function register(req, res, next) {
   const address = req.body.address || "";
   const number = req.body.number || "";
   const complement = req.body.complement || "";
+
+  if(fullName == null || fullName == ""){
+    return res.status(400).send({ alert: ["O campo Nome Completo é obrigatório."]})
+  }
+  if(!fullName.match(fullNameRegex)){
+    return res.status(400).send({ alert: ["Informe o Nome e Sobrenome."]})
+  }
+
+  // if(mail == null || mail == ""){
+  //   return res.status(400).send({ alert: ["O campo E-mail é obrigatório."]})
+  // }
+  // if(!mail.match(mailRegex)){
+  //   return res.status(400).send({ alert: ["O e-mail informado é inválido. Informe um e-mail no padrão nome@dominio.com."]})
+  // }
+
 
   const newBody = new Register({
     fullName,

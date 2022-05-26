@@ -12,6 +12,6 @@ Executar o comando , para instalar as dependencias do projeto. OBS: Dependencias
 Para executar o projeto:
 
 para executar o projeto apontando para o banco dedados local.
-para exercutar o projeto apontando para o banco de dados de produção.
+para executar o projeto apontando para o banco de dados de produção.
 
     
